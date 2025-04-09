@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pracovní výkazy & Finance</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-b3/css/all.min.css">
 </head>
 <body>
     <header class="main-header">
         <div class="header-left">
-            <h1><i class="fas fa-briefcase"></i> Pracovní výkazy & Finance</h1>
+            <h1>Pracovní výkazy & Finance</h1>
         </div>
         <nav class="main-nav">
             <ul>
@@ -33,47 +32,45 @@
 
     <main>
         <section id="dochazka" class="active">
-            <h2><i class="fas fa-clock"></i> Docházka</h2>
-
+            <h2>Docházka</h2>
+            
             <div class="timer-container">
-                <h3>Časovač práce</h3>
                 <div class="timer-display">
                     <div id="timer-time">00:00:00</div>
                     <div id="timer-info">
                         <span id="timer-person"></span>
                         <span id="timer-activity-display"></span>
                     </div>
-                    <div id="timer-earnings" class="timer-earnings-display"></div>
                 </div>
-
+                
                 <div class="timer-controls">
                     <div class="timer-person-select" id="timer-person-select">
                         <label>
                             <input type="radio" name="timer-person" value="maru" checked>
-                            Maru (275 Kč/h)
+                            Maru
                         </label>
                         <label>
                             <input type="radio" name="timer-person" value="marty">
-                            Marty (400 Kč/h)
+                            Marty
                         </label>
                     </div>
-
+                    
                     <div class="timer-activity-select">
-                        <label for="timer-activity">Úkol:</label>
                         <select id="timer-activity">
                             <option value="">-- Vyberte úkol --</option>
-                            </select>
+                            <!-- Bude naplněno dynamicky z kategorií úkolů -->
+                        </select>
                     </div>
-
+                    
+                    <div class="timer-buttons">
+                        <button id="timer-start">Spustit</button>
+                        <button id="timer-pause" disabled>Pauza</button>
+                        <button id="timer-stop" disabled>Zastavit</button>
+                    </div>
+                    
                     <div class="timer-note">
                         <label for="timer-note-input">Poznámka:</label>
                         <input type="text" id="timer-note-input" placeholder="Volitelná poznámka k úkolu">
-                    </div>
-
-                    <div class="timer-buttons">
-                        <button id="timer-start"><i class="fas fa-play"></i> Spustit</button>
-                        <button id="timer-pause" disabled><i class="fas fa-pause"></i> Pauza</button>
-                        <button id="timer-stop" disabled><i class="fas fa-stop"></i> Zastavit a Uložit</button>
                     </div>
                 </div>
             </div>
@@ -114,7 +111,8 @@
                             <label for="manual-activity">Úkol:</label>
                             <select id="manual-activity">
                                 <option value="">-- Vyberte úkol --</option>
-                                </select>
+                                <!-- Bude naplněno dynamicky -->
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="manual-note">Poznámka:</label>
@@ -122,16 +120,16 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" id="save-log-button"><i class="fas fa-plus"></i> Přidat záznam</button>
-                        <button type="button" id="cancel-edit-button" class="cancel-button" style="display:none;"><i class="fas fa-times"></i> Zrušit úpravu</button>
+                        <button type="submit" id="save-log-button">Přidat záznam</button>
+                        <button type="button" id="cancel-edit-button" class="cancel-button" style="display:none;">Zrušit</button>
                     </div>
                 </form>
             </div>
         </section>
 
         <section id="finance">
-            <h2><i class="fas fa-money-bill-wave"></i> Finance</h2>
-
+            <h2>Finance</h2>
+            
             <div class="finance-entry">
                 <h3>Přidat příjem/výdaj</h3>
                 <form id="finance-form">
@@ -158,7 +156,8 @@
                             <label for="finance-category">Kategorie:</label>
                             <select id="finance-category">
                                 <option value="">-- Vyberte kategorii --</option>
-                                </select>
+                                <!-- Bude naplněno dynamicky -->
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -176,8 +175,8 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" id="save-finance-button"><i class="fas fa-plus"></i> Přidat</button>
-                        <button type="button" id="cancel-finance-edit-button" class="cancel-button" style="display:none;"><i class="fas fa-times"></i> Zrušit úpravu</button>
+                        <button type="submit" id="save-finance-button">Přidat</button>
+                        <button type="button" id="cancel-finance-edit-button" class="cancel-button" style="display:none;">Zrušit</button>
                     </div>
                 </form>
             </div>
@@ -198,7 +197,7 @@
                             </tr>
                         </thead>
                         <tbody id="finance-table">
-                            <tr><td colspan="7" class="text-center empty-placeholder">Žádné finanční záznamy.</td></tr>
+                            <!-- Bude naplněno dynamicky -->
                         </tbody>
                     </table>
                 </div>
@@ -206,12 +205,12 @@
         </section>
 
         <section id="srazky">
-             <h2><i class="fas fa-percentage"></i> Srážky a Dluhy</h2>
-
+            <h2>Srážky</h2>
+            
             <div class="deductions-summary">
-                <h3>Přehled srážek dle měsíce</h3>
+                <h3>Přehled srážek</h3>
                 <div class="info-box">
-                    <p><i class="fas fa-info-circle"></i> Srážky se automaticky počítají z hrubého výdělku: <strong>Maru: 1/3 (cca 33.33%)</strong>, <strong>Marty: 50%</strong>. Zobrazují se srážky za kompletní měsíce.</p>
+                    <p>Srážky se automaticky počítají jako 1/3 z výdělku Maru a 50% z výdělku Marty.</p>
                 </div>
                 <div class="table-container">
                     <table>
@@ -220,31 +219,31 @@
                                 <th>Osoba</th>
                                 <th>Měsíc</th>
                                 <th>Celkem odpracováno</th>
-                                <th>Hrubý výdělek</th>
+                                <th>Celkový výdělek</th>
                                 <th>Srážka</th>
                             </tr>
                         </thead>
                         <tbody id="deductions-summary-table">
-                             <tr><td colspan="5" class="text-center empty-placeholder">Žádné záznamy pro výpočet srážek.</td></tr>
+                            <!-- Bude naplněno dynamicky -->
                         </tbody>
                     </table>
                 </div>
             </div>
-
+            
             <div class="debts-overview">
                 <h3>Dluhy a splátky</h3>
-                 <div id="debts-list">
-                    <div class="accordion-empty">Žádné dluhy k zobrazení. Přidejte dluh níže.</div>
-                    </div>
+                <div id="debts-list">
+                    <!-- Bude naplněno dynamicky -->
+                </div>
             </div>
 
             <div class="debt-entry">
-                <h3>Přidat/Upravit dluh</h3>
+                <h3>Přidat dluh</h3>
                 <form id="debt-form">
                     <input type="hidden" id="edit-debt-id" value="">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="debt-person">Osoba (dluží):</label>
+                            <label for="debt-person">Osoba:</label>
                             <select id="debt-person" required>
                                 <option value="maru">Maru</option>
                                 <option value="marty">Marty</option>
@@ -252,12 +251,12 @@
                         </div>
                         <div class="form-group">
                             <label for="debt-description">Popis:</label>
-                            <input type="text" id="debt-description" required placeholder="Např. Půjčka na...">
+                            <input type="text" id="debt-description" required>
                         </div>
                     </div>
                     <div class="form-row">
-                         <div class="form-group">
-                            <label for="debt-amount">Celková částka:</label>
+                        <div class="form-group">
+                            <label for="debt-amount">Částka:</label>
                             <input type="number" id="debt-amount" min="0" step="0.01" required>
                         </div>
                         <div class="form-group">
@@ -268,18 +267,10 @@
                                 <option value="USD">USD</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="debt-date">Datum vzniku:</label>
-                            <input type="date" id="debt-date" required>
-                        </div>
-                         <div class="form-group">
-                            <label for="debt-due-date">Datum splatnosti (volitelné):</label>
-                            <input type="date" id="debt-due-date">
-                        </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" id="save-debt-button"><i class="fas fa-plus"></i> Přidat dluh</button>
-                         <button type="button" id="cancel-debt-edit-button" class="cancel-button" style="display:none;"><i class="fas fa-times"></i> Zrušit úpravu</button>
+                        <button type="submit" id="save-debt-button">Přidat dluh</button>
+                        <button type="button" id="cancel-debt-edit-button" class="cancel-button" style="display:none;">Zrušit</button>
                     </div>
                 </form>
             </div>
@@ -287,40 +278,54 @@
             <div class="payment-entry">
                 <h3>Přidat splátku</h3>
                 <form id="payment-form">
+                    <input type="hidden" id="edit-payment-id" value="">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="payment-debt-id">Dluh (Komu se splácí):</label>
-                            <select id="payment-debt-id" required>
-                                <option value="">-- Vyberte dluh --</option>
-                                </select>
+                            <label for="payment-person">Osoba:</label>
+                            <select id="payment-person" required>
+                                <option value="maru">Maru</option>
+                                <option value="marty">Marty</option>
+                            </select>
                         </div>
-                         <div class="form-group">
-                            <label for="payment-amount">Částka splátky:</label>
-                            <input type="number" id="payment-amount" min="0" step="0.01" required>
+                        <div class="form-group">
+                            <label for="payment-debt-id">Dluh:</label>
+                            <select id="payment-debt-id">
+                                <option value="">-- Vyberte dluh --</option>
+                                <!-- Bude naplněno dynamicky -->
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="payment-date">Datum splátky:</label>
-                            <input type="date" id="payment-date" required>
+                            <label for="payment-description">Popis:</label>
+                            <input type="text" id="payment-description" required>
                         </div>
                         <div class="form-group">
-                            <label for="payment-note">Poznámka (volitelné):</label>
-                            <input type="text" id="payment-note" placeholder="Např. Mimořádná splátka">
+                            <label for="payment-amount">Částka:</label>
+                            <input type="number" id="payment-amount" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-currency">Měna:</label>
+                            <select id="payment-currency" required>
+                                <option value="CZK">CZK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="USD">USD</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-actions">
-                        <button type="submit" id="save-payment-button"><i class="fas fa-money-check-alt"></i> Přidat splátku</button>
+                        <button type="submit" id="save-payment-button">Přidat splátku</button>
+                        <button type="button" id="cancel-payment-edit-button" class="cancel-button" style="display:none;">Zrušit</button>
                     </div>
                 </form>
             </div>
         </section>
 
         <section id="prehledy">
-            <h2><i class="fas fa-chart-bar"></i> Přehledy</h2>
-
+            <h2>Přehledy</h2>
+            
             <div class="filters-container">
-                <h3><i class="fas fa-filter"></i> Filtry pracovních záznamů</h3>
+                <h3>Filtry</h3>
                 <form id="filters-form">
                     <div class="form-row">
                         <div class="form-group">
@@ -331,12 +336,6 @@
                                 <option value="marty">Marty</option>
                             </select>
                         </div>
-                         <div class="form-group">
-                            <label for="filter-activity">Úkol:</label>
-                            <select id="filter-activity">
-                                <option value="">Všechny úkoly</option>
-                                </select>
-                        </div>
                         <div class="form-group">
                             <label for="filter-start-date">Od:</label>
                             <input type="date" id="filter-start-date">
@@ -345,111 +344,2408 @@
                             <label for="filter-end-date">Do:</label>
                             <input type="date" id="filter-end-date">
                         </div>
-
+                        <div class="form-group">
+                            <label for="filter-activity">Úkol:</label>
+                            <select id="filter-activity">
+                                <option value="">Všechny úkoly</option>
+                                <!-- Bude naplněno dynamicky -->
+                            </select>
+                        </div>
                     </div>
                     <div class="form-actions">
-                        <button type="button" id="apply-filters"><i class="fas fa-check"></i> Použít filtry</button>
-                        <button type="button" id="reset-filters" class="cancel-button"><i class="fas fa-undo"></i> Zrušit filtry</button>
+                        <button type="button" id="apply-filters">Použít filtry</button>
+                        <button type="button" id="reset-filters">Zrušit filtry</button>
                     </div>
                 </form>
             </div>
-
-            <div class="work-logs accordion-container">
-                <h3><i class="fas fa-list-alt"></i> Přehled pracovních záznamů</h3>
-                <div id="work-logs-accordion">
-                    <div class="accordion-empty">Žádné záznamy k zobrazení. Zkuste změnit filtry nebo přidejte záznam v sekci Docházka.</div>
-                    </div>
-            </div>
-
-             <div class="graph-container">
-                <h3><i class="fas fa-chart-pie"></i> Grafický přehled (dle filtrovaných záznamů)</h3>
+            
+            <div class="graph-container">
+                <h3>Grafický přehled</h3>
                 <div class="chart-options">
-                    <button type="button" data-chart-type="person" class="active">Podle osoby</button>
+                    <button type="button" data-chart-type="person">Podle osoby</button>
                     <button type="button" data-chart-type="activity">Podle úkolu</button>
                     <button type="button" data-chart-type="month">Podle měsíce</button>
                 </div>
-                <div id="chart-area-container">
-                    <canvas id="chart-area"></canvas>
-                     <div id="chart-no-data" class="chart-empty-placeholder" style="display: none;">Žádná data pro zobrazení grafu.</div>
-                 </div>
+                <div id="chart-area">
+                    <!-- Zde bude vložen graf -->
+                </div>
             </div>
-
+            
+            <div class="work-logs accordion-container">
+                <h3>Přehled záznamů</h3>
+                <div id="work-logs-accordion">
+                    <!-- Bude naplněno dynamicky -->
+                    <div class="accordion-empty">Žádné záznamy k zobrazení</div>
+                </div>
+            </div>
+            
             <div class="export-actions">
-                <h3><i class="fas fa-file-export"></i> Export dat</h3>
-                <button id="export-work-logs"><i class="fas fa-clock"></i> Export záznamů (CSV)</button>
-                <button id="export-finance"><i class="fas fa-money-bill-wave"></i> Export financí (CSV)</button>
-                <button id="export-deductions"><i class="fas fa-percentage"></i> Export srážek (CSV)</button>
-                <button id="export-debts"><i class="fas fa-hand-holding-usd"></i> Export dluhů (CSV)</button>
+                <h3>Export dat</h3>
+                <button id="export-work-logs">Export záznamů (CSV)</button>
+                <button id="export-finance">Export financí (CSV)</button>
+                <button id="export-deductions">Export srážek (CSV)</button>
+                <button id="export-debts">Export dluhů (CSV)</button>
             </div>
         </section>
 
         <section id="nastaveni">
-            <h2><i class="fas fa-cog"></i> Nastavení</h2>
-
+            <h2>Nastavení</h2>
+            
             <div class="categories-management">
                 <div class="category-section">
-                    <h3><i class="fas fa-tasks"></i> Kategorie úkolů</h3>
+                    <h3>Kategorie úkolů</h3>
                     <ul id="task-categories-list">
-                        <li class="empty-placeholder">Žádné kategorie úkolů.</li>
-                        </ul>
+                        <!-- Bude naplněno dynamicky -->
+                    </ul>
                     <div class="add-category">
                         <input type="text" id="new-task-category" placeholder="Nová kategorie úkolu">
-                        <button id="add-task-category"><i class="fas fa-plus"></i> Přidat</button>
+                        <button id="add-task-category">Přidat</button>
                     </div>
                 </div>
-
+                
                 <div class="category-section">
-                    <h3><i class="fas fa-wallet"></i> Kategorie výdajů</h3>
+                    <h3>Kategorie výdajů</h3>
                     <ul id="expense-categories-list">
-                         <li class="empty-placeholder">Žádné kategorie výdajů.</li>
-                        </ul>
+                        <!-- Bude naplněno dynamicky -->
+                    </ul>
                     <div class="add-category">
                         <input type="text" id="new-expense-category" placeholder="Nová kategorie výdajů">
-                        <button id="add-expense-category"><i class="fas fa-plus"></i> Přidat</button>
+                        <button id="add-expense-category">Přidat</button>
                     </div>
                 </div>
             </div>
-
+            
             <div class="rent-settings">
-                <h3><i class="fas fa-home"></i> Nastavení nájmu (pro info)</h3>
-                <p class="info-box"><i class="fas fa-info-circle"></i> Toto nastavení je pouze informativní a momentálně neovlivňuje žádné automatické výpočty ani záznamy.</p>
+                <h3>Nastavení nájmu</h3>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="rent-amount">Výše nájmu (CZK):</label>
+                        <label for="rent-amount">Výše nájmu:</label>
                         <input type="number" id="rent-amount" min="0" step="0.01">
                     </div>
                     <div class="form-group">
-                        <label for="rent-currency-display">Měna:</label>
-                        <input type="text" id="rent-currency-display" value="CZK" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="rent-day">Den splatnosti v měsíci:</label>
+                        <label for="rent-day">Den v měsíci:</label>
                         <input type="number" id="rent-day" min="1" max="31">
                     </div>
                 </div>
-                <button id="save-rent-settings"><i class="fas fa-save"></i> Uložit nastavení nájmu</button>
-            </div>
-
-            <div class="data-management">
-                <h3><i class="fas fa-database"></i> Správa dat</h3>
-                <div class="form-actions">
-                     <button id="backup-data"><i class="fas fa-download"></i> Zálohovat data (JSON)</button>
-                     <label for="import-data-input" class="button-like-label import-button">
-                         <i class="fas fa-upload"></i> Obnovit data (JSON)
-                         <input type="file" id="import-data-input" accept=".json" style="display: none;">
-                    </label>
-                    <button id="clear-all-data" class="delete-button"><i class="fas fa-trash-alt"></i> Smazat všechna data</button>
-                </div>
-                <p class="warning-text"><i class="fas fa-exclamation-triangle"></i> Pozor: Smazání dat je nevratné! Před smazáním si data zálohujte.</p>
+                <button id="save-rent-settings">Uložit</button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="footer-year"></span> Pracovní výkazy & Finance</p>
+        <p>&copy; 2025 Pracovní výkazy & Finance</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
 </body>
+</html> import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import AppLayout from './AppLayout';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
+root.render(
+  <React.StrictMode>
+    <AppLayout />
+  </React.StrictMode>
+);
+ {
+  "name": "work-tracker-app",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "lucide-react": "^0.263.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.5.0",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "react-scripts": "^5.0.1"
+  }
+} import React, { useState, useEffect } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Clock, DollarSign, Percent, PieChart } from "lucide-react";
+import WorkLogList from './WorkLogList';
+import Timer from './Timer';
+import WorkLogForm from './WorkLogForm';
+import DeductionsSummary from './DeductionsSummary';
+import FinanceList from './FinanceList';
+import FinanceForm from './FinanceForm';
+import ChartDisplay from './ChartDisplay';
+
+// Dummy data - v reálné aplikaci by byla načtena z API
+const workLogsData = [
+  { id: '1', person: 'maru', date: '2023-06-01', start: '08:00', end: '16:00', break: 30, worked: 450, earnings: 2062.5, deduction: 687.5, activity: 'Programování', note: 'Práce na dashboardu' },
+  { id: '2', person: 'marty', date: '2023-06-01', start: '09:00', end: '17:00', break: 60, worked: 420, earnings: 2800, deduction: 1400, activity: 'Design', note: 'UI komponenty' },
+  { id: '3', person: 'maru', date: '2023-06-02', start: '08:30', end: '14:30', break: 30, worked: 330, earnings: 1512.5, deduction: 504.17, activity: 'Administrativa', note: 'Dokumentace' }
+];
+
+const financeData = [
+  { id: '1', type: 'income', description: 'Výplata', amount: 25000, currency: 'CZK', date: '2023-06-15', category: '' },
+  { id: '2', type: 'expense', description: 'Nájem', amount: 12000, currency: 'CZK', date: '2023-06-01', category: 'Bydlení' },
+  { id: '3', type: 'expense', description: 'Nákup potravin', amount: 1500, currency: 'CZK', date: '2023-06-05', category: 'Jídlo' }
+];
+
+const deductionsData = [
+  { person: 'maru', monthName: 'Červen 2023', totalWorked: 780, totalEarnings: 3575, totalDeduction: 1191.67 },
+  { person: 'marty', monthName: 'Červen 2023', totalWorked: 420, totalEarnings: 2800, totalDeduction: 1400 },
+  { person: 'maru', monthName: 'Květen 2023', totalWorked: 2400, totalEarnings: 11000, totalDeduction: 3666.67 }
+];
+
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState("dochazka");
+  const [workLogs, setWorkLogs] = useState(workLogsData);
+  const [finances, setFinances] = useState(financeData);
+  const [deductions, setDeductions] = useState(deductionsData);
+
+  // Statistika pro souhrnné karty
+  const totalEarningsThisMonth = workLogs
+    .filter(log => log.date.startsWith('2023-06'))
+    .reduce((sum, log) => sum + log.earnings, 0);
+
+  const totalDeductionsThisMonth = workLogs
+    .filter(log => log.date.startsWith('2023-06'))
+    .reduce((sum, log) => sum + log.deduction, 0);
+
+  const totalWorkTimeThisMonth = workLogs
+    .filter(log => log.date.startsWith('2023-06'))
+    .reduce((sum, log) => sum + log.worked, 0);
+
+  const formatWorkTime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
+  };
+
+  // Handlery pro manipulaci s daty
+  const handleAddWorkLog = (newLog) => {
+    setWorkLogs([...workLogs, { ...newLog, id: Date.now().toString() }]);
+  };
+
+  const handleAddFinance = (newFinance) => {
+    setFinances([...finances, { ...newFinance, id: Date.now().toString() }]);
+  };
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6">Pracovní výkazy</h1>
+
+      {/* Souhrnné karty */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <Card>
+          <CardContent className="p-4 flex items-center space-x-4">
+            <Clock className="h-8 w-8 text-blue-500" />
+            <div>
+              <p className="text-sm text-gray-500">Odpracováno tento měsíc</p>
+              <p className="text-2xl font-bold">{formatWorkTime(totalWorkTimeThisMonth)}</p>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4 flex items-center space-x-4">
+            <DollarSign className="h-8 w-8 text-green-500" />
+            <div>
+              <p className="text-sm text-gray-500">Výdělek tento měsíc</p>
+              <p className="text-2xl font-bold">{totalEarningsThisMonth.toFixed(2)} CZK</p>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4 flex items-center space-x-4">
+            <Percent className="h-8 w-8 text-red-500" />
+            <div>
+              <p className="text-sm text-gray-500">Srážky tento měsíc</p>
+              <p className="text-2xl font-bold">{totalDeductionsThisMonth.toFixed(2)} CZK</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Tabs */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
+        <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-2 md:grid-cols-4">
+          <TabsTrigger value="dochazka">Docházka</TabsTrigger>
+          <TabsTrigger value="finance">Finance</TabsTrigger>
+          <TabsTrigger value="srazky">Srážky</TabsTrigger>
+          <TabsTrigger value="prehledy">Přehledy</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="dochazka" className="space-y-6">
+          <Timer />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Přidat pracovní záznam</h2>
+                <WorkLogForm onSubmit={handleAddWorkLog} />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Pracovní záznamy</h2>
+                <WorkLogList workLogs={workLogs} />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="finance" className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Přidat finanční záznam</h2>
+                <FinanceForm onSubmit={handleAddFinance} />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-4">Finanční záznamy</h2>
+                <FinanceList finances={finances} />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="srazky">
+          <Card>
+            <CardContent className="p-6">
+              <h2 className="text-xl font-semibold mb-4">Přehled srážek</h2>
+              <DeductionsSummary deductions={deductions} />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="prehledy">
+          <Card>
+            <CardContent className="p-6">
+              <h2 className="text-xl font-semibold mb-4">Grafové přehledy</h2>
+              <div className="space-x-2 mb-4">
+                <Button variant="outline" size="sm">Podle osoby</Button>
+                <Button variant="outline" size="sm">Podle úkolu</Button>
+                <Button variant="outline" size="sm">Podle měsíce</Button>
+              </div>
+              <ChartDisplay data={workLogs} type="person" />
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default Dashboard; <!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pracovní Výkazy</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide-react@0.263.0/dist/umd/lucide-react.min.js"></script>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Komponenta Timer
+        const Timer = () => {
+            const [time, setTime] = React.useState(0);
+            const [isRunning, setIsRunning] = React.useState(false);
+            const [person, setPerson] = React.useState('maru');
+            const [task, setTask] = React.useState('');
+
+            // Hodinové sazby
+            const hourlyRates = {
+                maru: 275,
+                marty: 400
+            };
+
+            // Efekt pro odpočet času
+            React.useEffect(() => {
+                let interval;
+                if (isRunning) {
+                    interval = setInterval(() => {
+                        setTime(prevTime => prevTime + 1);
+                    }, 1000);
+                }
+                return () => clearInterval(interval);
+            }, [isRunning]);
+
+            // Formátování času
+            const formatTime = (totalSeconds) => {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            };
+
+            // Výpočet výdělku
+            const calculateEarnings = () => {
+                const hours = time / 3600;
+                return hours * hourlyRates[person];
+            };
+
+            // Přednastavené úkoly
+            const tasks = [
+                'Wellness',
+                'Pracovní hovor',
+                'Příprava vily',
+                'Prádelna'
+            ];
+
+            // Obsluha tlačítek
+            const handleStart = () => {
+                if (!task) {
+                    alert('Prosím vyberte úkol');
+                    return;
+                }
+                setIsRunning(true);
+            };
+
+            const handlePause = () => {
+                setIsRunning(false);
+            };
+
+            const handleStop = () => {
+                setIsRunning(false);
+                setTime(0);
+            };
+
+            return (
+                <div className="max-w-md mx-auto bg-white rounded-xl shadow-md border border-gray-200">
+                    <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+                        {/* Výběr osoby */}
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center">
+                                <lucide.User size={20} className="mr-2" />
+                                <select 
+                                    value={person}
+                                    onChange={(e) => setPerson(e.target.value)}
+                                    className="bg-transparent border-b border-white/50 font-bold text-lg"
+                                >
+                                    <option value="maru">Maru</option>
+                                    <option value="marty">Marty</option>
+                                </select>
+                            </div>
+                            <div>{hourlyRates[person]} CZK/h</div>
+                        </div>
+
+                        {/* Zobrazení času */}
+                        <div className="text-center">
+                            <div className="text-5xl font-mono mb-4">
+                                {formatTime(time)}
+                            </div>
+
+                            {/* Výdělek */}
+                            {time > 0 && (
+                                <div className="text-sm">
+                                    Výdělek: {calculateEarnings().toFixed(2)} CZK
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Ovládací tlačítka */}
+                        <div className="flex justify-center space-x-4 mt-4">
+                            {!isRunning ? (
+                                <button 
+                                    onClick={handleStart}
+                                    className="bg-green-500 text-white p-3 rounded-full"
+                                >
+                                    <lucide.Play />
+                                </button>
+                            ) : (
+                                <button 
+                                    onClick={handlePause}
+                                    className="bg-yellow-500 text-white p-3 rounded-full"
+                                >
+                                    <lucide.Pause />
+                                </button>
+                            )}
+
+                            <button 
+                                onClick={handleStop}
+                                className="bg-red-500 text-white p-3 rounded-full"
+                                disabled={time === 0}
+                            >
+                                <lucide.StopCircle />
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Výběr úkolu */}
+                    <div className="p-4">
+                        <label className="block mb-2">Úkol</label>
+                        <select
+                            value={task}
+                            onChange={(e) => setTask(e.target.value)}
+                            className="w-full p-2 border rounded"
+                        >
+                            <option value="">Vyberte úkol</option>
+                            {tasks.map(t => (
+                                <option key={t} value={t}>{t}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Indikátor běhu */}
+                    {isRunning && (
+                        <div className="bg-green-100 text-green-800 text-center p-2">
+                            Časovač běží
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        // Komponenta pro stránku pracovních záznamů
+        const WorklogPage = () => {
+            const [worklog, setWorklog] = React.useState([
+                {
+                    id: 1,
+                    date: '2024-04-10',
+                    task: 'Wellness',
+                    person: 'Maru',
+                    startTime: '09:00',
+                    endTime: '12:30',
+                    duration: '3h 30m',
+                    earnings: 962.50
+                },
+                {
+                    id: 2,
+                    date: '2024-04-09',
+                    task: 'Příprava vily',
+                    person: 'Marty',
+                    startTime: '13:00',
+                    endTime: '16:45',
+                    duration: '3h 45m',
+                    earnings: 1500.00
+                }
+            ]);
+
+            return (
+                <div className="p-6">
+                    <h1 className="text-2xl font-bold mb-6">Pracovní záznamy</h1>
+                    
+                    <div className="bg-white shadow rounded-lg overflow-hidden">
+                        <table className="w-full">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    <th className="p-3 text-left">Datum</th>
+                                    <th className="p-3 text-left">Úkol</th>
+                                    <th className="p-3 text-left">Osoba</th>
+                                    <th className="p-3 text-left">Čas</th>
+                                    <th className="p-3 text-right">Výdělek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {worklog.map(entry => (
+                                    <tr key={entry.id} className="border-b">
+                                        <td className="p-3">{entry.date}</td>
+                                        <td className="p-3">{entry.task}</td>
+                                        <td className="p-3">{entry.person}</td>
+                                        <td className="p-3">{entry.startTime} - {entry.endTime}</td>
+                                        <td className="p-3 text-right">{entry.earnings.toFixed(2)} CZK</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            );
+        };
+
+        // Hlavní App komponenta
+        const App = () => {
+            const [activePage, setActivePage] = React.useState('timer');
+
+            const renderPage = () => {
+                switch(activePage) {
+                    case 'timer':
+                        return <Timer />;
+                    case 'worklog':
+                        return <WorklogPage />;
+                    default:
+                        return <Timer />;
+                }
+            };
+
+            return (
+                <div className="flex h-screen bg-gray-100">
+                    {/* Boční navigace */}
+                    <nav className="w-64 bg-indigo-800 text-white flex flex-col">
+                        <div className="p-6 bg-indigo-900">
+                            <h1 className="text-xl font-bold">Pracovní výkazy</h1>
+                        </div>
+                        
+                        <button 
+                            onClick={() => setActivePage('timer')}
+                            className={`p-4 ${activePage === 'timer' ? 'bg-indigo-700' : 'hover:bg-indigo-700/50'}`}
+                        >
+                            <lucide.Clock className="inline mr-2" /> Časovač
+                        </button>
+                        
+                        <button 
+                            onClick={() => setActivePage('worklog')}
+                            className={`p-4 ${activePage === 'worklog' ? 'bg-indigo-700' : 'hover:bg-indigo-700/50'}`}
+                        >
+                            <lucide.ClipboardList className="inline mr-2" /> Záznamy
+                        </button>
+                    </nav>
+
+                    {/* Hlavní obsah */}
+                    <main className="flex-1 overflow-auto p-6">
+                        {renderPage()}
+                    </main>
+                </div>
+            );
+        };
+
+        // Render aplikace
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
 </html>
+ @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ /* Základní reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Accordion styly */
+.accordion-container {
+    margin-bottom: 2rem;
+}
+
+.accordion-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    font-weight: 600;
+    color: #2c3e50;
+    transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+    background-color: #edf2f7;
+}
+
+.accordion-header.active {
+    background-color: #4a6da7;
+    color: white;
+}
+
+.accordion-header-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.accordion-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accordion-day-summary {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.accordion-day-summary > div {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.accordion-day-summary i {
+    opacity: 0.7;
+}
+
+.accordion-toggle {
+    transition: transform 0.3s;
+}
+
+.accordion-header.active .accordion-toggle {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.accordion-content-inner {
+    padding: 1rem;
+}
+
+.accordion-person-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.accordion-person-tag.maru {
+    background-color: rgba(54, 162, 235, 0.2);
+    color: #2980b9;
+}
+
+.accordion-person-tag.marty {
+    background-color: rgba(255, 99, 132, 0.2);
+    color: #c0392b;
+}
+
+.accordion-empty {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsivní tabulka pro mobilní zařízení */
+.accordion-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.accordion-table th,
+.accordion-table td {
+    padding: 0.7rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-table th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Mobilní zobrazení tabulky */
+@media (max-width: 767px) {
+    /* Skryjeme původní tabulkovou hlavičku */
+    .accordion-table thead {
+        display: none;
+    }
+   
+    /* Převedeme každý řádek na blokový element */
+    .accordion-table tbody,
+    .accordion-table tr,
+    .accordion-table td {
+        display: block;
+        width: 100%;
+    }
+   
+    /* Oddělení záznamů */
+    .accordion-table tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+   
+    /* Prevence zdvojených okrajů */
+    .accordion-table tr:last-child {
+        margin-bottom: 0;
+    }
+   
+    /* Styl pro buňky - převedeme na flexbox pro lepší rozvržení */
+    .accordion-table td {
+        display: flex;
+        padding: 0.6rem 0.8rem;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        align-items: center;
+    }
+   
+    .accordion-table td:last-child {
+        border-bottom: none;
+    }
+   
+    /* Přidáme názvy sloupců jako data-label */
+    .accordion-table td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        width: 40%;
+        margin-right: 5%;
+        color: #555;
+    }
+   
+    /* Obsah buňky */
+    .accordion-table td .cell-content {
+        width: 55%;
+    }
+   
+    /* Speciální styly pro akce */
+    .accordion-table td.actions-cell {
+        justify-content: flex-end;
+        padding: 0.5rem;
+        background-color: #f8f9fa;
+    }
+   
+    .accordion-table td.actions-cell:before {
+        display: none;
+    }
+   
+    .accordion-table td.actions-cell .cell-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+   
+    /* Zlepšení formuláře filtrů pro mobilní zobrazení */
+    .filters-container .form-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+   
+    .filters-container .form-actions {
+        flex-direction: column;
+    }
+   
+    /* Graf optimalizace pro mobil */
+    .chart-options {
+        flex-wrap: wrap;
+    }
+   
+    .chart-options button {
+        flex: 1;
+        min-width: 110px;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+        white-space: nowrap;
+    }
+   
+    #chart-area {
+        height: 300px;
+    }
+   
+    /* Vylepšení stylu hlavičky accordionu pro mobilní zobrazení */
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+   
+    .accordion-header-content {
+        width: 100%;
+        justify-content: space-between;
+    }
+   
+    .accordion-day-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        margin-top: 0.3rem;
+    }
+   
+    .accordion-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Dark Mode podpora */
+@media (prefers-color-scheme: dark) {
+    .accordion-item {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+   
+    .accordion-header {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
+   
+    .accordion-header:hover {
+        background-color: #333;
+    }
+   
+    .accordion-header.active {
+        background-color: #4a6da7;
+        color: white;
+    }
+   
+    .accordion-content {
+        background-color: #1e1e1e;
+    }
+   
+    .accordion-person-tag.maru {
+        background-color: rgba(54, 162, 235, 0.15);
+        color: #68a7dd;
+    }
+   
+    .accordion-person-tag.marty {
+        background-color: rgba(255, 99, 132, 0.15);
+        color: #e57373;
+    }
+   
+    .accordion-empty {
+        color: #aaa;
+        background-color: #1e1e1e;
+    }
+   
+    .accordion-table th {
+        background-color: #2a2a2a;
+        color: #ccc;
+    }
+   
+    .accordion-table td {
+        border-bottom-color: #333;
+    }
+   
+    @media (max-width: 767px) {
+        .accordion-table tr {
+            border-color: #444;
+        }
+       
+        .accordion-table td {
+            border-bottom-color: #333;
+        }
+       
+        .accordion-table td:before {
+            color: #aaa;
+        }
+       
+        .accordion-table td.actions-cell {
+            background-color: #272727;
+        }
+    }
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 70px; /* Pro fixní header */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px; /* Pro fixní header */
+}
+
+/* Fixní horní lišta */
+.main-header {
+    background-color: #4a6da7;
+    color: white;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.header-left h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    margin: 0 5px;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.7rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.main-nav ul li a i {
+    margin-right: 5px;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+#header-timer {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+#header-timer.hidden {
+    display: none;
+}
+
+#header-timer-time {
+    font-weight: bold;
+    font-family: monospace;
+}
+
+#header-timer-person, #header-timer-activity {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+/* Main content */
+main {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+section {
+    display: none;
+    margin-bottom: 2rem;
+}
+
+section.active {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #4a6da7;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    margin: 1.2rem 0 0.8rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.8rem 0 0.5rem;
+}
+
+/* Timer */
+.timer-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.timer-display {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#timer-time {
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: monospace;
+    color: #2c3e50;
+    line-height: 1.1;
+}
+
+#timer-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#timer-person, #timer-activity-display {
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    background-color: #eef2f7;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.timer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.timer-person-select {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.timer-person-select label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    flex: 1;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.timer-person-select label:hover {
+    background-color: #e9e9e9;
+}
+
+.timer-person-select input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.timer-activity-select {
+    width: 100%;
+}
+
+.timer-activity-select select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.timer-buttons {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.timer-buttons button {
+    flex: 1;
+    padding: 0.8rem;
+}
+
+/* Forms */
+form {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #4a6da7;
+    box-shadow: 0 0 0 2px rgba(74, 109, 167, 0.2);
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 0.3rem;
+}
+
+button {
+    background-color: #4a6da7;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #3a5a8f;
+}
+
+button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.5rem;
+}
+
+.form-actions button {
+    min-width: 120px;
+}
+
+button#timer-start {
+    background-color: #28a745;
+}
+
+button#timer-start:hover {
+    background-color: #218838;
+}
+
+button#timer-pause {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+button#timer-pause:hover {
+    background-color: #e0a800;
+}
+
+button#timer-stop {
+    background-color: #dc3545;
+}
+
+button#timer-stop:hover {
+    background-color: #c82333;
+}
+
+button.cancel-button {
+    background-color: #6c757d;
+}
+
+button.cancel-button:hover {
+    background-color: #5a6268;
+}
+
+/* Tables */
+.table-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th, td {
+    padding: 0.8rem 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    color: #555;
+    position: sticky;
+    top: 0;
+}
+
+thead {
+    border-bottom: 2px solid #e0e0e0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f0f4f9;
+}
+
+/* Filters */
+.filters-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Graph container */
+.graph-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#chart-area {
+    height: 400px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.chart-options {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.chart-options button {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.5rem 1rem;
+}
+
+.chart-options button:hover {
+    background-color: #dde2e6;
+}
+
+.chart-options button.active {
+    background-color: #4a6da7;
+    color: white;
+}
+
+/* Srážky */
+.deductions-summary {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-box {
+    background-color: #e8f4f8;
+    border-left: 4px solid #4a6da7;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+/* Dluhy */
+.debts-overview {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.debt-currency {
+    margin-bottom: 1.5rem;
+}
+
+.debts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.debts-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.debts-list li:last-child {
+    border-bottom: none;
+}
+
+.debts-list li span {
+    flex: 1;
+}
+
+.debt-total {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Settings */
+.category-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#task-categories-list,
+#expense-categories-list {
+    list-style: none;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+#task-categories-list li,
+#expense-categories-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-categories-list li:last-child,
+#expense-categories-list li:last-child {
+    border-bottom: none;
+}
+
+#task-categories-list li span,
+#expense-categories-list li span {
+    flex: 1;
+}
+
+.add-category {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.add-category input {
+    flex: 1;
+}
+
+.rent-settings {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.export-actions {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.export-actions h3 {
+    width: 100%;
+    margin-top: 0;
+}
+
+.export-actions button {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.edit-btn, .delete-btn {
+    background-color: transparent;
+    padding: 0.3rem;
+    border-radius: 4px;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    color: #4a6da7;
+}
+
+.edit-btn:hover {
+    background-color: rgba(74, 109, 167, 0.1);
+}
+
+.delete-btn {
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .main-nav ul li a span {
+        display: none;
+    }
+   
+    .main-nav ul li a i {
+        margin-right: 0;
+        font-size: 1.2rem;
+    }
+   
+    .form-group {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 110px;
+    }
+   
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+    }
+   
+    .header-left {
+        margin-bottom: 0.3rem;
+    }
+   
+    .main-nav {
+        width: 100%;
+    }
+   
+    .main-nav ul {
+        justify-content: space-around;
+    }
+   
+    .main-nav ul li {
+        margin: 0;
+    }
+   
+    .main-nav ul li a {
+        padding: 0.5rem;
+        justify-content: center;
+    }
+   
+    .header-right {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+   
+    h2 {
+        font-size: 1.3rem;
+    }
+   
+    .form-row {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+   
+    .form-group {
+        width: 100%;
+    }
+   
+    #timer-time {
+        font-size: 2.5rem;
+    }
+   
+    .timer-buttons {
+        flex-direction: column;
+    }
+   
+    .export-actions {
+        flex-direction: column;
+    }
+   
+    .export-actions button {
+        width: 100%;
+    }
+   
+    .chart-options {
+        flex-wrap: wrap;
+    }
+   
+    #chart-area {
+        height: 300px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #f0f0f0;
+    }
+   
+    .main-header {
+        background-color: #2c3e50;
+    }
+   
+    h2 {
+        color: #6d9eeb;
+        border-bottom-color: #444;
+    }
+   
+    h3, h4 {
+        color: #a8c8ff;
+    }
+   
+    .timer-container, form, .table-container, .debts-overview,
+    .category-section, .rent-settings, .deductions-summary,
+    .filters-container, .graph-container, .export-actions {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+   
+    .info-box {
+        background-color: #2a3b4d;
+        border-left-color: #6d9eeb;
+    }
+   
+    #timer-time {
+        color: #e0e0e0;
+    }
+   
+    #timer-info {
+        color: #bbb;
+    }
+   
+    #timer-person, #timer-activity-display {
+        background-color: #2e2e2e;
+    }
+   
+    .timer-person-select label {
+        background-color: #2e2e2e;
+    }
+   
+    .timer-person-select label:hover {
+        background-color: #3a3a3a;
+    }
+   
+    input, select, .chart-options button {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: #f0f0f0;
+    }
+   
+    input:focus, select:focus {
+        border-color: #6d9eeb;
+    }
+   
+    label {
+        color: #ccc;
+    }
+   
+    th {
+        background-color: #2a2a2a;
+        color: #ccc;
+    }
+   
+    thead {
+        border-bottom-color: #444;
+    }
+   
+    td {
+        border-bottom-color: #333;
+    }
+   
+    tbody tr:nth-child(even) {
+        background-color: #222;
+    }
+   
+    tbody tr:hover {
+        background-color: #2a3b4d;
+    }
+   
+    #task-categories-list li,
+    #expense-categories-list li,
+    .debts-list li {
+        border-bottom-color: #333;
+    }
+   
+    .edit-btn {
+        color: #6d9eeb;
+    }
+   
+    .chart-options button {
+        background-color: #2a2a2a;
+        color: #ccc;
+    }
+   
+    .chart-options button:hover {
+        background-color: #3a3a3a;
+    }
+   
+    .chart-options button.active {
+        background-color: #4a6da7;
+        color: white;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pracovní výkazy</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta
+      name="description"
+      content="Aplikace pro sledování pracovního času a výkazů"
+    />
+</head>
+<body class="antialiased bg-gray-100">
+    <noscript>Pro běh této aplikace potřebujete mít zapnutý JavaScript.</noscript>
+    <div
+
+import React, { useState, useEffect } from 'react';
+import { 
+  Play, 
+  Pause, 
+  StopCircle, 
+  Clock, 
+  ChevronDown, 
+  User 
+} from 'lucide-react';
+
+function Timer() {
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const [person, setPerson] = useState('maru');
+  const [task, setTask] = useState('');
+  const [note, setNote] = useState('');
+
+  // Hodinové sazby
+  const hourlyRates = {
+    maru: 275,
+    marty: 400
+  };
+
+  // Efekt pro odpočet času
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setTime(prevTime => prevTime + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  // Formátování času
+  const formatTime = (totalSeconds) => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  };
+
+  // Výpočet výdělku
+  const calculateEarnings = () => {
+    const hours = time / 3600;
+    return hours * hourlyRates[person];
+  };
+
+  // Přednastavené úkoly
+  const tasks = [
+    'Wellness',
+    'Pracovní hovor',
+    'Příprava vily',
+    'Prádelna'
+  ];
+
+  // Obsluha tlačítek
+  const handleStart = () => {
+    if (!task) {
+      alert('Prosím vyberte úkol');
+      return;
+    }
+    setIsRunning(true);
+  };
+
+  const handlePause = () => {
+    setIsRunning(false);
+  };
+
+  const handleStop = () => {
+    // V reálné aplikaci byste zde ukládali záznam
+    setIsRunning(false);
+    setTime(0);
+  };
+
+  return (
+    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md border border-gray-200">
+      <div className="p-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+        {/* Výběr osoby */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center">
+            <User size={20} className="mr-2" />
+            <select 
+              value={person}
+              onChange={(e) => setPerson(e.target.value)}
+              className="bg-transparent border-b border-white/50 font-bold text-lg"
+            >
+              <option value="maru">Maru</option>
+              <option value="marty">Marty</option>
+            </select>
+          </div>
+          <div>{hourlyRates[person]} CZK/h</div>
+        </div>
+
+        {/* Zobrazení času */}
+        <div className="text-center">
+          <div className="text-5xl font-mono mb-4">
+            {formatTime(time)}
+          </div>
+
+          {/* Výdělek */}
+          {time > 0 && (
+            <div className="text-sm">
+              Výdělek: {calculateEarnings().toFixed(2)} CZK
+            </div>
+          )}
+        </div>
+
+        {/* Ovládací tlačítka */}
+        <div className="flex justify-center space-x-4 mt-4">
+          {!isRunning ? (
+            <button 
+              onClick={handleStart}
+              className="bg-green-500 text-white p-3 rounded-full"
+            >
+              <Play />
+            </button>
+          ) : (
+            <button 
+              onClick={handlePause}
+              className="bg-yellow-500 text-white p-3 rounded-full"
+            >
+              <Pause />
+            </button>
+          )}
+
+          <button 
+            onClick={handleStop}
+            className="bg-red-500 text-white p-3 rounded-full"
+            disabled={time === 0}
+          >
+            <StopCircle />
+          </button>
+        </div>
+      </div>
+
+      {/* Výběr úkolu */}
+      <div className="p-4">
+        <label className="block mb-2">Úkol</label>
+        <select
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          className="w-full p-2 border rounded"
+        >
+          <option value="">Vyberte úkol</option>
+          {tasks.map(t => (
+            <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Indikátor běhu */}
+      {isRunning && (
+        <div className="bg-green-100 text-green-800 text-center p-2">
+          Časovač běží
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default Timer;
+
+import React from 'react';
+import Timer from '../components/Timer';
+
+function HomePage() {
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6">Pracovní časovač</h1>
+      
+      <div className="grid md:grid-cols-2 gap-6">
+        {/* Sekce s časovačem */}
+        <div>
+          <Timer />
+        </div>
+
+        {/* Sekce s posledními záznamy */}
+        <div>
+          <div className="bg-white rounded-xl shadow-md p-4">
+            <h2 className="text-lg font-semibold mb-4">Poslední záznamy</h2>
+            <ul className="space-y-2">
+              <li className="bg-gray-100 p-3 rounded flex justify-between">
+                <span>Wellness</span>
+                <span className="font-medium">2h 30m</span>
+              </li>
+              <li className="bg-gray-100 p-3 rounded flex justify-between">
+                <span>Příprava vily</span>
+                <span className="font-medium">1h 45m</span>
+              </li>
+              <li className="bg-gray-100 p-3 rounded flex justify-between">
+                <span>Pracovní hovor</span>
+                <span className="font-medium">1h 15m</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default HomePage;
+
+import React, { useState } from 'react';
+import { Edit, Trash2 } from 'lucide-react';
+
+function WorklogPage() {
+  // Ukázková data pracovních záznamů
+  const [worklog, setWorklog] = useState([
+    {
+      id: 1,
+      date: '
+
+import React, { useState } from 'react';
+import { Edit, Trash2, Filter } from 'lucide-react';
+
+function WorklogPage() {
+  // Ukázková data pracovních záznamů
+  const [worklog, setWorklog] = useState([
+    {
+      id: 1,
+      date: '2024-04-10',
+      task: 'Wellness',
+      person: 'Maru',
+      startTime: '09:00',
+      endTime: '12:30',
+      duration: '3h 30m',
+      earnings: 962.50
+    },
+    {
+      id: 2,
+      date: '2024-04-09',
+      task: 'Příprava vily',
+      person: 'Marty',
+      startTime: '13:00',
+      endTime: '16:45',
+      duration: '3h 45m',
+      earnings: 1500.00
+    },
+    {
+      id: 3,
+      date: '2024-04-08',
+      task: 'Pracovní hovor',
+      person: 'Maru',
+      startTime: '10:15',
+      endTime: '12:00',
+      duration: '1h 45m',
+      earnings: 481.25
+    }
+  ]);
+
+  // Stav pro filtry
+  const [filters, setFilters] = useState({
+    person: '',
+    startDate: '',
+    endDate: '',
+    task: ''
+  });
+
+  // Funkce pro úpravu filtru
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Filtrování záznamů
+  const filteredWorklog = worklog.filter(entry => {
+    return (
+      (filters.person === '' || entry.person.toLowerCase() === filters.person.toLowerCase()) &&
+      (filters.startDate === '' || entry.date >= filters.startDate) &&
+      (filters.endDate === '' || entry.date <= filters.endDate) &&
+      (filters.task === '' || entry.task.toLowerCase().includes(filters.task.toLowerCase()))
+    );
+  });
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Pracovní záznamy</h1>
+
+      {/* Sekce filtrů */}
+      <div className="bg-white shadow rounded-lg p-4 mb-6">
+        <div className="grid md:grid-cols-4 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Osoba</label>
+            <select
+              name="person"
+              value={filters.person}
+              onChange={handleFilterChange}
+              className="w-full p-2 border rounded"
+            >
+              <option value="">Všechny osoby</option>
+              <option value="Maru">Maru</option>
+              <option value="Marty">Marty</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Od</label>
+            <input
+              type="date"
+              name="startDate"
+              value={filters.startDate}
+              onChange={handleFilterChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Do</label>
+            <input
+              type="date"
+              name="endDate"
+              value={filters.endDate}
+              onChange={handleFilterChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Úkol</label>
+            <input
+              type="text"
+              name="task"
+              value={filters.task}
+              onChange={handleFilterChange}
+              placeholder="Hledat úkol"
+              className="w-full p-2 border rounded"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Tabulka pracovních záznamů */}
+      <div className="bg-white shadow rounded-lg overflow-hidden">
+        <table className="w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="p-3 text-left">Datum</th>
+              <th className="p-3 text-left">Úkol</th>
+              <th className="p-3 text-left">Osoba</th>
+              <th className="p-3 text-left">Čas</th>
+              <th className="p-3 text-right">Výdělek</th>
+              <th className="p-3 text-right">Akce</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredWorklog.map(entry => (
+              <tr key={entry.id} className="border-b">
+                <td className="p-3">{entry.date}</td>
+                <td className="p-3">{entry.task}</td>
+                <td className="p-3">{entry.person}</td>
+                <td className="p-3">{entry.startTime} - {entry.endTime}</td>
+                <td className="p-3 text-right">{entry.earnings.toFixed(2)} CZK</td>
+                <td className="p-3 text-right">
+                  <div className="flex justify-end space-x-2">
+                    <button className="text-blue-500 hover:text-blue-700">
+                      <Edit size={18} />
+                    </button>
+                    <button className="text-red-500 hover:text-red-700">
+                      <Trash2 size={18} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/* Prázdný stav, když není žádný záznam */}
+        {filteredWorklog.length === 0 && (
+          <div className="text-center p-6 text-gray-500">
+            Nebyly nalezeny žádné pracovní záznamy
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default WorklogPage;
+
+import React, { useState } from 'react';
+import { 
+  Clock, 
+  DollarSign, 
+  BarChart2, 
+  PieChart 
+} from 'lucide-react';
+
+function StatsPage() {
+  // Ukázková data pro statistiky
+  const [stats, setStats] = useState({
+    totalHours: 45.5,
+    totalEarnings: 15_620.50,
+    averageHourlyRate: 343.75,
+    taskBreakdown: [
+      { task: 'Wellness', hours: 15.25, earnings: 4_218.75 },
+      { task: 'Příprava vily', hours: 12.5, earnings: 3_437.50 },
+      { task: 'Pracovní hovor', hours: 8.75, earnings: 2_406.25 },
+      { task: 'Prádelna', hours: 9, earnings: 2_475.00 }
+    ]
+  });
+
+  // Barvy pro grafy
+  const colors = [
+    'bg-blue-500', 
+    'bg-green-500', 
+    'bg-purple-500', 
+    'bg-orange-500'
+  ];
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Přehledy a statistiky</h1>
+
+      {/* Celkové statistiky */}
+      <div className="grid md:grid-cols-3 gap-6 mb-6">
+        <div className="bg-white shadow rounded-lg p-4 flex items-center">
+          <Clock className="mr-4 text-blue-500" />
+          <div>
+            <p className="text-gray-500">Celkem odpracováno</p>
+            <p className="text-2xl font-bold">{stats.totalHours} h</p>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-lg p-4 flex items-center">
+          <DollarSign className="mr-4 text-green-500" />
+          <div>
+            <p className="text-gray-500">Celkový výdělek</p>
+            <p className="text-2xl font-bold">{stats.totalEarnings.toFixed(2)} CZK</p>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-lg p-4 flex items-center">
+          <BarChart2 className="mr-4 text-purple-500" />
+          <div>
+            <p className="text-gray-500">Průměrná sazba</p>
+            <p className="text-2xl font-bold">{stats.averageHourlyRate.toFixed(2)} CZK/h</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Rozklad podle úkolů */}
+      <div className="bg-white shadow rounded-lg p-6">
+        <h2 className="text-xl font-semibold mb-4">Rozdělení podle úkolů</h2>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Sloupcový graf */}
+          <div>
+            <h3 className="font-medium mb-3">Odpracované hodiny</h3>
+            <div className="space-y-2">
+              {stats.taskBreakdown.map((item, index) => (
+                <div key={item.task} className="flex items-center">
+                  <div 
+                    className={`w-10 h-6 mr-3 ${colors[index]} rounded`}
+                  ></div>
+                  <div className="flex-1 flex justify-between">
+                    <span>{item.task}</span>
+                    <span>{item.hours} h</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Výdělkový graf */}
+          <div>
+            <h3 className="font-medium mb-3">Výdělek podle úkolů</h3>
+            <div className="space-y-2">
+              {stats.taskBreakdown.map((item, index) => (
+                <div key={item.task} className="flex items-center">
+                  <div 
+                    className={`w-10 h-6 mr-3 ${colors[index]} rounded`}
+                  ></div>
+                  <div className="flex-1 flex justify-between">
+                    <span>{item.task}</span>
+                    <span>{item.earnings.toFixed(2)} CZK</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default StatsPage;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+# Aplikace pro správu pracovních záznamů
+
+## Účel aplikace
+Aplikace slouží k vedení evidence práce, sledování odpracovaného času, výpočtu výdělků, správě srážek a dluhů. Je navržena jako mobilní a responzivní webová aplikace v Reactu s jednoduchým nasazením.
+
+## Klíčové funkce
+
+### 1. Časovač práce
+- **Měření času**: Start, pauza, stop funkce pro sledování práce v reálném čase
+- **Výběr osoby**: Volba mezi uživateli (Maru, Marty) s různými hodinovými sazbami
+- **Kategorizace práce**: Výběr typu činnosti (programování, design, administrativa, ...)
+- **Poznámky**: Možnost přidat poznámku k práci
+- **Automatický výpočet**: Výpočet výdělku a srážek na základě odpracovaného času
+
+### 2. Manuální zadávání
+- **Ruční vstupy**: Možnost ručně zadat začátek, konec a přestávku
+- **Editace záznamů**: Úprava existujících záznamů
+- **Výpočty**: Automatický výpočet odpracovaného času, výdělku a srážky
+
+### 3. Přehledy
+- **Seznam záznamů**: Chronologicky seřazené záznamy podle data
+- **Filtrování**: Filtrace podle osoby, data, aktivity
+- **Seskupení**: Záznamy seskupené podle dnů a měsíců
+- **Statistiky**: Sumarizace odpracovaného času, výdělků a srážek
+
+### 4. Finance
+- **Příjmy a výdaje**: Evidence všech finančních transakcí
+- **Kategorizace**: Rozdělení do kategorií
+- **Měny**: Podpora různých měn
+- **Bilance**: Přehled celkových příjmů a výdajů
+
+### 5. Správa dluhů
+- **Evidence dluhů**: Sledování půjček a dluhů
+- **Splátky**: Evidence splátek
+- **Upozornění**: Notifikace na blížící se termíny splátek
+
+## Technické detaily
+
+### Datový model
+
+#### Pracovní záznam:
+```javascript
+{
+  id: String,               // Unikátní identifikátor záznamu
+  person: String,           // Osoba (maru/marty)
+  date: String,             // Datum (YYYY-MM-DD)
+  start: String,            // Čas začátku (HH:MM)
+  end: String,              // Čas konce (HH:MM)
+  break: Number,            // Pauza v minutách
+  worked: Number,           // Odpracovaný čas v minutách
+  earnings: Number,         // Výdělek v Kč
+  deduction: Number,        // Srážka v Kč
+  activity: String,         // Typ činnosti
+  note: String              // Poznámka k práci
+}
+```
+
+#### Finanční záznam:
+```javascript
+{
+  id: String,               // Unikátní identifikátor záznamu
+  type: String,             // Typ transakce (income/expense)
+  description: String,      // Popis transakce
+  amount: Number,           // Částka
+  currency: String,         // Měna
+  date: String,             // Datum (YYYY-MM-DD)
+  category: String          // Kategorie transakce
+}
+```
+
+#### Dluh:
+```javascript
+{
+  id: String,               // Unikátní identifikátor záznamu
+  debtor: String,           // Dlužník
+  creditor: String,         // Věřitel
+  amount: Number,           // Částka
+  currency: String,         // Měna
+  date: String,             // Datum vytvoření (YYYY-MM-DD)
+  dueDate: String,          // Datum splatnosti (YYYY-MM-DD)
+  description: String,      // Popis dluhu
+  isPaid: Boolean           // Stav splacení
+}
+```
+
+### Výpočty a algoritmy
+
+#### Výpočet výdělku:
+```javascript
+// Hodinové sazby podle osoby
+const hourlyRates = {
+  maru: 275,  // Kč/h
+  marty: 400  // Kč/h
+};
+
+// Výpočet výdělku
+const calculateEarnings = (minutes, person) => {
+  return (minutes / 60) * hourlyRates[person];
+};
+```
+
+#### Výpočet srážky:
+```javascript
+// Sazby srážek podle osoby
+const deductionRates = {
+  maru: 1/3,  // 33.33%
+  marty: 0.5  // 50%
+};
+
+// Výpočet srážky
+const calculateDeduction = (earnings, person) => {
+  return earnings * deductionRates[person];
+};
