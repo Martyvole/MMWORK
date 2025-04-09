@@ -12,6 +12,9 @@
     <header class="main-header">
         <div class="header-left">
             <h1><i class="fas fa-briefcase"></i> Pracovní výkazy & Finance</h1>
+            <button id="toggle-menu" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
         <nav class="main-nav">
             <ul>
@@ -62,7 +65,7 @@
                         <label for="timer-activity">Úkol:</label>
                         <select id="timer-activity">
                             <option value="">-- Vyberte úkol --</option>
-                            </select>
+                        </select>
                     </div>
 
                     <div class="timer-note">
@@ -114,7 +117,7 @@
                             <label for="manual-activity">Úkol:</label>
                             <select id="manual-activity">
                                 <option value="">-- Vyberte úkol --</option>
-                                </select>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="manual-note">Poznámka:</label>
@@ -158,7 +161,7 @@
                             <label for="finance-category">Kategorie:</label>
                             <select id="finance-category">
                                 <option value="">-- Vyberte kategorii --</option>
-                                </select>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -235,7 +238,7 @@
                 <h3>Dluhy a splátky</h3>
                  <div id="debts-list">
                     <div class="accordion-empty">Žádné dluhy k zobrazení. Přidejte dluh níže.</div>
-                    </div>
+                </div>
             </div>
 
             <div class="debt-entry">
@@ -292,7 +295,7 @@
                             <label for="payment-debt-id">Dluh (Komu se splácí):</label>
                             <select id="payment-debt-id" required>
                                 <option value="">-- Vyberte dluh --</option>
-                                </select>
+                            </select>
                         </div>
                          <div class="form-group">
                             <label for="payment-amount">Částka splátky:</label>
@@ -335,7 +338,7 @@
                             <label for="filter-activity">Úkol:</label>
                             <select id="filter-activity">
                                 <option value="">Všechny úkoly</option>
-                                </select>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="filter-start-date">Od:</label>
@@ -345,7 +348,6 @@
                             <label for="filter-end-date">Do:</label>
                             <input type="date" id="filter-end-date">
                         </div>
-
                     </div>
                     <div class="form-actions">
                         <button type="button" id="apply-filters"><i class="fas fa-check"></i> Použít filtry</button>
@@ -358,7 +360,7 @@
                 <h3><i class="fas fa-list-alt"></i> Přehled pracovních záznamů</h3>
                 <div id="work-logs-accordion">
                     <div class="accordion-empty">Žádné záznamy k zobrazení. Zkuste změnit filtry nebo přidejte záznam v sekci Docházka.</div>
-                    </div>
+                </div>
             </div>
 
              <div class="graph-container">
@@ -391,7 +393,7 @@
                     <h3><i class="fas fa-tasks"></i> Kategorie úkolů</h3>
                     <ul id="task-categories-list">
                         <li class="empty-placeholder">Žádné kategorie úkolů.</li>
-                        </ul>
+                    </ul>
                     <div class="add-category">
                         <input type="text" id="new-task-category" placeholder="Nová kategorie úkolu">
                         <button id="add-task-category"><i class="fas fa-plus"></i> Přidat</button>
@@ -402,7 +404,7 @@
                     <h3><i class="fas fa-wallet"></i> Kategorie výdajů</h3>
                     <ul id="expense-categories-list">
                          <li class="empty-placeholder">Žádné kategorie výdajů.</li>
-                        </ul>
+                    </ul>
                     <div class="add-category">
                         <input type="text" id="new-expense-category" placeholder="Nová kategorie výdajů">
                         <button id="add-expense-category"><i class="fas fa-plus"></i> Přidat</button>
